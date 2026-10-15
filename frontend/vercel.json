@@ -1,0 +1,50 @@
+
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "services": {
+    "frontend": {
+      "root": "frontend",
+      "framework": "vite"
+    },
+    "placement-officer": {
+      "root": "frontend/placement-officer",
+      "framework": "vite"
+    },
+    "admin-portal": {
+      "root": "admin-portal",
+      "framework": "vite"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/placement-officer",
+      "destination": {
+        "service": "placement-officer"
+      }
+    },
+    {
+      "source": "/placement-officer/(.*)",
+      "destination": {
+        "service": "placement-officer"
+      }
+    },
+    {
+      "source": "/adminportal",
+      "destination": {
+        "service": "admin-portal"
+      }
+    },
+    {
+      "source": "/adminportal/(.*)",
+      "destination": {
+        "service": "admin-portal"
+      }
+    },
+    {
+      "source": "/(.*)",
+      "destination": {
+        "service": "frontend"
+      }
+    }
+  ]
+}
